@@ -1,4 +1,9 @@
+import { useState } from "react";
+import { RiCloseCircleLine, RiMenuFill } from "react-icons/ri";
+import Link from "../Link/Link";
+
 const NavBar = () => {
+  const [open, setOpen] = useState(false);
   const routes = [
     { id: 1, path: "/", name: "Home" },
     { id: 2, path: "/about", name: "About" },
@@ -7,12 +12,13 @@ const NavBar = () => {
     { id: 5, path: "/blog", name: "Blog" },
   ];
   return (
-    <nav>
-      <ul>
+    <nav className="text-black p-6 bg-green-500">
+      <div className="text-2xl md:hidden" onClick={() => setOpen(!open)}>
+        {open === true ? <RiCloseCircleLine /> : <RiMenuFill />}
+      </div>
+      <ul className="md:flex absolute p-8 bg-green-500 rounded-lg ">
         {routes.map((route) => (
-          <li key={route.id}>
-            <a href={`route.path`}>{route.name}</a>
-          </li>
+          <Link key={route.id} route={route} />
         ))}
       </ul>
     </nav>
