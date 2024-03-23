@@ -16,7 +16,11 @@ const NavBar = () => {
       <div className="text-2xl md:hidden" onClick={() => setOpen(!open)}>
         {open === true ? <RiCloseCircleLine /> : <RiMenuFill />}
       </div>
-      <ul className="md:flex absolute p-8 bg-green-500 rounded-lg ">
+      <ul
+        className={`md:flex duration-1000 absolute md:static ${
+          open ? "top-16" : "-top-60"
+        } p-8 bg-green-500 rounded-lg`}
+      >
         {routes.map((route) => (
           <Link key={route.id} route={route} />
         ))}
