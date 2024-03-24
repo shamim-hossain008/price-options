@@ -4,6 +4,7 @@ import Link from "../Link/Link";
 
 const NavBar = () => {
   const [open, setOpen] = useState(false);
+
   const routes = [
     { id: 1, path: "/", name: "Home" },
     { id: 2, path: "/about", name: "About" },
@@ -11,6 +12,7 @@ const NavBar = () => {
     { id: 4, path: "/products", name: "Products" },
     { id: 5, path: "/blog", name: "Blog" },
   ];
+
   return (
     <nav className="text-black p-6 bg-green-500">
       <div className="text-2xl md:hidden" onClick={() => setOpen(!open)}>
@@ -22,6 +24,7 @@ const NavBar = () => {
         } p-8 bg-green-500 rounded-lg`}
       >
         {routes.map((route) => (
+          // <Link key={route.id} route={route} />
           <Link key={route.id} route={route} />
         ))}
       </ul>
